@@ -52,10 +52,20 @@ public class Main {
                 }
             }
             System.out.println("\nTotal pesanan saat ini = " + fun.total);
-            System.out.println("\nApakah anda ingin melanjutkan (y/n)? ");
-            String again = input.next();
 
-            ulang = fun.yesOrNo(again);
+            boolean pesanLagi = true;
+            while(pesanLagi){
+                System.out.println("\nApakah anda ingin melanjutkan (y/n)? ");
+                String again = input.next();
+
+                if (again.equalsIgnoreCase("y") || again.equalsIgnoreCase("n")){
+                    ulang = fun.yesOrNo(again);
+                    pesanLagi = false;
+                }else{
+                    System.err.println("Silahkan pilih (y/n)");
+                    pesanLagi = true;
+                }
+            }
 
         }
 
@@ -66,6 +76,6 @@ public class Main {
     //function
     public static void sayThanks(int totalHarga){
         System.out.println("\nJadi total pesanan anda sebesar "+ totalHarga);
-        System.out.println("\n\nTerima kasih");
+        System.out.println("\n--> Terima kasih");
     }
 }
